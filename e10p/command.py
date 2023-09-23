@@ -6,7 +6,10 @@ def main():
     args = parse_arguments()
     solver = Solver(4, 10)
     result = solver.solv(args.nums)
-    print(result)
+    if result:
+        print(result)
+    else:
+        print('No answer found.')
 
 
 def parse_arguments():
