@@ -4,8 +4,8 @@ from fractions import Fraction
 class Tree():
     def __init__(self, op, a, b):
         self.op = op
-        self.a = a
-        self.b = b
+        self.a = Leaf(a) if isinstance(a, int) else a
+        self.b = Leaf(b) if isinstance(b, int) else b
 
     def __str__(self):
         s = str(self.a) + self.op + str(self.b)
