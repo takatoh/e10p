@@ -16,7 +16,7 @@ class Solver():
         elif len(nums) == 2:
             for op in ['+', '-', '*', '/']:
                 t = Tree(op, nums[0], nums[1])
-                if t.value():
+                if t.value() == self.expected:
                     return str(t)
         else:
             for x, y in itertools.permutations(nums, 2):
