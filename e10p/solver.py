@@ -10,6 +10,12 @@ class Solver():
         self.expected = expected
 
     def solv(self, nums):
+        if len(nums) == self.n:
+            return self._solv(nums)
+        else:
+            return None
+
+    def _solv(self, nums):
         if len(nums) == 1:
             if nums[0].value() == self.expected:
                 return self.expected
@@ -28,7 +34,7 @@ class Solver():
                 for op in OPERATORS:
                     t = Tree(op, x, y)
                     if t.value():
-                        t = self.solv(z + [t])
+                        t = self._solv(z + [t])
                         if t:
                             return t
             return None
