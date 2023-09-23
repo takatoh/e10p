@@ -31,6 +31,9 @@ class Tree():
         else:
             return None
 
+    def getoperator(self):
+        return self.op
+
 
 class Leaf():
     def __init__(self, v):
@@ -41,3 +44,6 @@ class Leaf():
 
     def value(self):
         return self.v
+
+    def getoperator(self):
+        return None
