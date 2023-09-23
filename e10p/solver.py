@@ -17,7 +17,7 @@ class Solver():
             for op in ['+', '-', '*', '/']:
                 t = Tree(op, nums[0], nums[1])
                 if t.value() == self.expected:
-                    return str(t)
+                    return t
         else:
             for x, y in itertools.permutations(nums, 2):
                 z = nums[:]
@@ -26,7 +26,7 @@ class Solver():
                 for op in ['+', '-', '*', '/']:
                     t = Tree(op, x, y)
                     if t.value():
-                        s = self.solv(z + [t])
-                        if s:
-                            return s
+                        t = self.solv(z + [t])
+                        if t:
+                            return t
             return None
