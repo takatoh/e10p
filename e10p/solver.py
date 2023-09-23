@@ -1,6 +1,8 @@
 import itertools
 from .node import Tree
 
+OPERATORS = ['+', '-', '*', '/']
+
 
 class Solver():
     def __init__(self, n, expected):
@@ -14,7 +16,7 @@ class Solver():
             else:
                 return None
         elif len(nums) == 2:
-            for op in ['+', '-', '*', '/']:
+            for op in OPERATORS:
                 t = Tree(op, nums[0], nums[1])
                 if t.value() == self.expected:
                     return t
@@ -23,7 +25,7 @@ class Solver():
                 z = nums[:]
                 z.remove(x)
                 z.remove(y)
-                for op in ['+', '-', '*', '/']:
+                for op in OPERATORS:
                     t = Tree(op, x, y)
                     if t.value():
                         t = self.solv(z + [t])
