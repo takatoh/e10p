@@ -25,3 +25,14 @@ class Tree():
             return self.a / self.b
         else:
             return None
+
+
+class Leaf():
+    def __init__(self, v):
+        self.v = Fraction(v)
+
+    def __str__(self):
+        return str(self.v)
+
+    def value(self):
+        return self.v
