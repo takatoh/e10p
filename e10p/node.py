@@ -11,11 +11,11 @@ class Tree():
         a = str(self.a)
         b = str(self.b)
         if self.op in ['*', '/']:
-            if isinstance(self.a, Tree) and self.a.op in ['+', '-']:
+            if self.a.getoperator() in ['+', '-']:
                 a = f'({a})'
-            if isinstance(self.b, Tree) and self.b.op in ['+', '-']:
+            if self.b.getoperator() in ['+', '-']:
                 b = f'({b})'
-        elif self.op == '-' and isinstance(self.b, Tree) and self.b.op == '-':
+        elif self.op == '-' and self.b.getoperator() == '-':
             b = f'({b})'
         return a + self.op + b
 
