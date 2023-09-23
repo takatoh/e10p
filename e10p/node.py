@@ -4,8 +4,8 @@ from fractions import Fraction
 class Tree():
     def __init__(self, op, a, b):
         self.op = op
-        self.a = Fraction(a)
-        self.b = Fraction(b)
+        self.a = a
+        self.b = b
 
     def __str__(self):
         s = str(self.a) + self.op + str(self.b)
@@ -16,13 +16,13 @@ class Tree():
 
     def value(self):
         if self.op == '+':
-            return self.a + self.b
+            return self.a.value() + self.b.value()
         elif self.op == '-':
-            return self.a - self.b
+            return self.a.value() - self.b.value()
         elif self.op == '*':
-            return self.a * self.b
-        elif self.op == '/' and not self.b == 0:
-            return self.a / self.b
+            return self.a.value() * self.b.value()
+        elif self.op == '/' and not self.b.value() == 0:
+            return self.a.value() / self.b.value()
         else:
             return None
 
