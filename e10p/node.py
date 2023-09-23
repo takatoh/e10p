@@ -10,7 +10,7 @@ class Tree():
     def __str__(self):
         s = str(self.a) + self.op + str(self.b)
         if self.op in ['+', '-']:
-            return f'{{s}}'
+            return f'({s})'
         else:
             return s
 
