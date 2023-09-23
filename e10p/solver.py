@@ -1,6 +1,5 @@
 import itertools
-from fractions import Fraction
-from .node import Node
+from .node import Tree
 
 
 class Solver():
@@ -16,19 +15,18 @@ class Solver():
                 return None
         elif len(nums) == 2:
             for op in ['+', '-', '*', '/']:
-                node = Node(op, nums[0], nums[1])
-                if node.value():
-                    return str(node)
+                t = Tree(op, nums[0], nums[1])
+                if t.value():
+                    return str(t)
         else:
-            fnums = [ Fraction(n) for n in nums ]
-            for x, y in itertools.permutations(fnums):
-                z = fnums[:]
+            for x, y in itertools.permutations(nums):
+                z = nums[:]
                 z.remove(x)
                 z.remove(y)
                 for op in ['+', '-', '*', '/']:
-                    node = Node(op, x, y)
-                    if node.value():
-                        s = self.solv(z + [node])
+                    t = Tree(op, x, y)
+                    if t.value():
+                        s = self.solv(z + [t])
                         if s:
                             return s
             return None
