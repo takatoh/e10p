@@ -1,7 +1,7 @@
 from fractions import Fraction
 
 
-class Node():
+class Tree():
     def __init__(self, op, a, b):
         self.op = op
         self.a = Fraction(a)
