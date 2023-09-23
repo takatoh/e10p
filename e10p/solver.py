@@ -19,7 +19,7 @@ class Solver():
                 if t.value():
                     return str(t)
         else:
-            for x, y in itertools.permutations(nums):
+            for x, y in itertools.permutations(nums, 2):
                 z = nums[:]
                 z.remove(x)
                 z.remove(y)
