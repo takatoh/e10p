@@ -1,5 +1,6 @@
-import argparse
 from .solver import Solver
+from . import __version__
+import argparse
 
 
 def main():
@@ -13,13 +14,22 @@ def main():
 
 
 def parse_arguments():
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(
+        description='Solver for Extended TenPuzzle.'
+    )
     parser.add_argument(
         'nums',
         action='store',
         nargs='+',
         type=int,
+        metavar='NUM',
         help='specify numbers'
+    )
+    parser.add_argument(
+        '-V', '--version',
+        action='version',
+        version=f'v{__version__}',
+        help='show version and exit'
     )
     args = parser.parse_args()
     return args
