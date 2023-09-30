@@ -5,7 +5,7 @@ import argparse
 
 def main():
     args = parse_arguments()
-    solver = Solver(4, 10)
+    solver = Solver(args.count, args.expected)
     try:
         result = solver.solv(args.nums)
         if result:
@@ -27,6 +27,20 @@ def parse_arguments():
         type=int,
         metavar='NUM',
         help='specify numbers'
+    )
+    parser.add_argument(
+        '-c', '--count',
+        action='store',
+        type=int,
+        default=4,
+        help='specify count of numbers (default to 4)'
+    )
+    parser.add_argument(
+        '-e', '--expected',
+        action='store',
+        type=int,
+        default=10,
+        help='specify expected number (default to 10)'
     )
     parser.add_argument(
         '-V', '--version',
