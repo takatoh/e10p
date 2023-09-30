@@ -13,7 +13,7 @@ class Solver():
         if len(nums) == self.n:
             return self._solv(nums)
         else:
-            return None
+            raise InvalidCountOfNumbers(f'Must give {self.n} numbers ({len(nums)} given).')
 
     def _solv(self, nums):
         if len(nums) == 1:
@@ -38,3 +38,7 @@ class Solver():
                         if t:
                             return t
             return None
+
+
+class InvalidCountOfNumbers(Exception):
+    pass
