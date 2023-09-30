@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "e10p"
-version = "0.1.0"
-description = ""
+version = "0.2.0"
+description = "Solver for Extended TenPuzzle"
 authors = ["takatoh <takatoh.m@gmail.com>"]
 readme = "README.md"
 
